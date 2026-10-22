@@ -1,8 +1,10 @@
 const intro = document.getElementById('intro');
 const prof = document.getElementById('profiles');
 const main = document.getElementById('main');
+const introSound = document.getElementById('introSound');
 let done = false;
 
+// Function to move to profiles screen
 function showProfiles() {
   if (done) return;
   done = true;
@@ -15,20 +17,26 @@ function showProfiles() {
   }, 700);
 }
 
-const t = setTimeout(showProfiles, 3400);
-
+// User interaction allows audio to play and triggers intro skip
 intro.addEventListener('click', function() {
-  clearTimeout(t);
-  showProfiles();
+  if (!done) {
+    // Play the Netflix sound on user interaction
+    introSound.volume = 0.5; // adjust volume if needed
+    introSound.play().catch(e => console.log("Audio play prevented", e));
+    
+    // Give time for the animation and sound before moving to profiles
+    setTimeout(showProfiles, 3000); // 3 seconds matching the main animation
+  }
 });
 
 intro.addEventListener('keydown', function(e) {
   if (e.key === 'Enter' || e.key === ' ') {
-    clearTimeout(t);
-    showProfiles();
+    introSound.play().catch(e => console.log("Audio play prevented", e));
+    setTimeout(showProfiles, 3000);
   }
 });
 
+// Profile Selection
 document.querySelectorAll('.profile').forEach(function(btn) {
   btn.addEventListener('click', function() {
     const name = btn.getAttribute('data-name');
@@ -49,6 +57,23 @@ document.querySelectorAll('.profile').forEach(function(btn) {
   });
 });
 
+// Navigation Background Shift on Scroll
 window.addEventListener('scroll', function() {
   document.getElementById('nav').classList.toggle('solid', window.scrollY >= 80);
+});
+
+// Connect Dropdown Toggle Logic
+const connectBtn = document.getElementById('connectBtn');
+const connectDropdown = document.getElementById('connectDropdown');
+
+connectBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  connectDropdown.classList.toggle('show');
+});
+
+// Close dropdown if clicked outside
+window.addEventListener('click', function(e) {
+  if (!connectBtn.contains(e.target) && !connectDropdown.contains(e.target)) {
+    connectDropdown.classList.remove('show');
+  }
 });
