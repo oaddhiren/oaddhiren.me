@@ -1,9 +1,148 @@
-/* Hero Section */
-.hero { 
-  min-height: 88vh; 
-  display: flex; 
-  align-items: center; 
-  padding: 110px 4% 120px; 
+/* --- BASE RESET & NETFLIX THEME --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: #141414;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+
+/* --- INTRO & PROFILES --- */
+#intro, #profiles {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: #141414; z-index: 1000;
+}
+.intro-text { font-size: 4rem; font-weight: 900; color: #E50914; letter-spacing: 2px; }
+.skip { margin-top: 20px; color: #808080; cursor: pointer; }
+#profiles { display: none; z-index: 999; }
+#profiles h1 { font-size: 2.5rem; margin-bottom: 30px; font-weight: normal; }
+.plist { display: flex; gap: 30px; }
+.profile { background: none; border: none; color: #808080; cursor: pointer; text-align: center; transition: color 0.2s; }
+.profile:hover { color: #fff; }
+.avatar { width: 10vw; height: 10vw; min-width: 84px; min-height: 84px; border-radius: 4px; margin-bottom: 10px; border: 2px solid transparent; }
+.profile:hover .avatar { border-color: #fff; }
+.avatar.b { background: #02569B; }
+.avatar.r { background: #E50914; }
+.avatar.g { background: #0F9D58; }
+
+/* --- MAIN LAYOUT & NAVBAR --- */
+#main { display: none; }
+nav {
+  position: fixed; top: 0; width: 100%; padding: 20px 4%;
+  display: flex; align-items: center; background: linear-gradient(rgba(0,0,0,0.8), transparent);
+  z-index: 100; transition: background 0.3s;
+}
+nav.scrolled { background: #141414; }
+.logo { color: #E50914; font-size: 1.8rem; font-weight: 900; margin-right: 40px; }
+.links { display: flex; list-style: none; gap: 20px; font-size: 0.9rem; }
+.links a { transition: color 0.3s; }
+.links a:hover { color: #b3b3b3; }
+.me { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+.me .avatar { width: 32px; height: 32px; min-width: 32px; min-height: 32px; border: none; margin: 0; }
+
+/* --- HERO SECTION --- */
+.hero {
+  height: 85vh; padding: 0 4%; display: flex; align-items: center;
+  /* Assuming main-bg.jpg is in the same folder based on your HTML */
+  background: linear-gradient(to right, #141414 20%, transparent 80%), url('main-bg.jpg') center/cover no-repeat;
+}
+.hero-in { max-width: 600px; margin-top: 50px; }
+.series { color: #e50914; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; font-size: 0.8rem; }
+.series b { font-size: 1.2rem; }
+.hero h1 { font-size: 4rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.45); }
+.meta { display: flex; gap: 15px; font-weight: bold; font-size: 1rem; margin-bottom: 15px; align-items: center; }
+.meta .m { color: #46d369; }
+.tag { border: 1px solid #fff; padding: 1px 4px; border-radius: 3px; font-size: 0.8rem; color: #fff; }
+.hero p.d { font-size: 1.2rem; line-height: 1.4; text-shadow: 2px 2px 4px rgba(0,0,0,0.45); margin-bottom: 25px; }
+.hbtn { display: flex; gap: 15px; }
+.btn { border: none; padding: 10px 25px; font-size: 1.2rem; font-weight: bold; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+.btn.p { background: #fff; color: #000; }
+.btn.p:hover { background: rgba(255,255,255,0.75); }
+.btn.s { background: rgba(109,109,110,0.7); color: #fff; }
+.btn.s:hover { background: rgba(109,109,110,0.4); }
+
+.connect-wrapper { position: relative; display: inline-block; }
+.connect-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #141414; border: 1px solid #333; min-width: 150px; z-index: 10; border-radius: 4px; overflow: hidden; }
+.connect-dropdown a { display: block; padding: 12px 16px; color: #fff; }
+.connect-dropdown a:hover { background: #333; }
+.connect-wrapper:hover .connect-dropdown { display: block; }
+
+/* --- CONTENT ROWS (The Fix for Enlarged Images) --- */
+.row { padding: 0 4%; margin: 3vw 0; position: relative; }
+.row h2 { font-size: 1.4vw; color: #e5e5e5; margin-bottom: 10px; min-font-size: 16px; }
+.nepali-title { padding: 0 4%; margin-bottom: 20px; font-size: 2rem; }
+
+/* The Track creates horizontal scrolling */
+.track {
+  display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden;
+  padding-bottom: 20px; scrollbar-width: none;
+}
+.track::-webkit-scrollbar { display: none; }
+
+/* The Cards constrain the images perfectly */
+.media-card, .card {
+  flex: 0 0 auto; 
+  width: 280px; 
+  height: 160px; 
   position: relative; 
-  background: linear-gradient(to right, rgba(0,0,0,.92) 25%, transparent 100%), url('assets/images/main-bg.jpg') center/cover no-repeat; 
+  border-radius: 4px; 
+  overflow: hidden; 
+  background: #222;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.media-card:hover { transform: scale(1.05); z-index: 2; border: 1px solid #fff; }
+
+/* Force images to fit the card without stretching */
+.media-card img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* This stops the bizarre stretching */
+  display: block;
+}
+
+.video-card iframe { width: 100%; height: 100%; pointer-events: none; }
+.media-card:hover iframe { pointer-events: auto; }
+
+/* Text Cards */
+.card.c1 { padding: 15px; background: #333; display: flex; flex-direction: column; justify-content: center; }
+.badge { background: #e50914; color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.7rem; font-weight: bold; align-self: flex-start; margin-bottom: 10px; }
+.card hI understand the frustration. If the photos are appearing massive and bizarre, it means the CSS isn't constraining their size to fit inside those Netflix-style cards, in addition to the file paths needing to be updated. 
+
+Here is your exact HTML code with the **image paths corrected** to `assets/images/`, plus the **missing CSS** you need to add to your `style.css` file to fix the giant images.
+
+### 1. Add this to your `style.css` file
+This CSS forces the images to stay neatly inside their cards, just like a Netflix thumbnail, without blowing up your entire screen:
+
+```css
+/* Fix for enlarged and bizarre photos */
+.track {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.media-card {
+  flex: 0 0 auto;
+  width: 250px; /* Set a fixed width for the cards */
+  height: 150px; /* Set a fixed height */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image fill the box without distorting */
+  display: block;
+}
+
+/* Ensure videos fit perfectly too */
+.video-card iframe {
+  width: 100%;
+  height: 100%;
 }
