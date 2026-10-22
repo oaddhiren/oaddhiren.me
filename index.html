@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Dhiren Oad | Portfolio</title>
+<style>
+:root{--bg:#141414;--black:#000;--red:#E50914;--text:#fff;--soft:#e5e5e5;--grey:#a3a3a3;--card:#2f2f2f;--green:#46d369;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:80px;background:var(--bg)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,.profile:focus-visible,.card:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* Intro */
+#intro{position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:1000;transition:opacity .8s;cursor:pointer}
+.intro-text{color:var(--red);font-weight:800;letter-spacing:.12em;font-size:clamp(2.2rem,11vw,6rem);opacity:0;animation:intro 3.4s ease-in-out forwards;text-shadow:0 0 40px rgba(229,9,20,.45)}
+.skip{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));color:#555;font-size:.8rem}
+@keyframes intro{0%{opacity:0;transform:scale(1.6);filter:blur(6px)}25%{opacity:1;transform:scale(1.1);filter:blur(0)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.25);filter:blur(10px)}}
+
+/* Who's watching */
+#profiles{position:fixed;inset:0;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:500;opacity:0;transition:opacity .5s;padding:24px;text-align:center}
+#profiles h1{font-size:clamp(1.8rem,5vw,3.5rem);font-weight:500;margin-bottom:2rem}
+.plist{display:flex;gap:clamp(14px,2.5vw,32px);flex-wrap:wrap;justify-content:center}
+.profile{background:none;border:0;color:var(--grey);display:flex;flex-direction:column;align-items:center;gap:12px;font-size:clamp(.95rem,1.6vw,1.3rem);transition:transform .2s,color .2s}
+.profile:hover,.profile:focus-visible{color:#fff;transform:scale(1.06)}
+.avatar{width:clamp(88px,11vw,150px);aspect-ratio:1;border-radius:6px;border:3px solid transparent;position:relative;transition:border-color .2s}
+.profile:hover .avatar,.profile:focus-visible .avatar{border-color:#fff}
+.avatar::before,.avatar::after{content:"";position:absolute;top:34%;width:9%;height:9%;background:#fff;border-radius:50%}
+.avatar::before{left:30%}.avatar::after{right:30%}
+.avatar i{position:absolute;left:30%;right:30%;top:58%;height:14%;border-bottom:4px solid #fff;border-radius:0 0 50% 50%}
+.b{background:#0275d8}.r{background:#d9534f}.g{background:#3aa655}
+
+/* Main */
+#main{display:none;opacity:0;transition:opacity 1s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(16px + env(safe-area-inset-top,0px)) 4% 16px;display:flex;align-items:center;gap:clamp(14px,3vw,34px);background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);transition:background .3s}
+nav.solid{background:var(--bg)}
+.logo{color:var(--red);font-weight:800;font-size:clamp(1.1rem,3vw,1.7rem);letter-spacing:.05em;text-decoration:none}
+.links{display:flex;gap:clamp(10px,1.8vw,20px);list-style:none;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{color:var(--soft);text-decoration:none;font-size:.85rem;white-space:nowrap}
+.links a:hover{color:var(--grey)}
+.me{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--soft)}
+.me .avatar{width:32px;border-width:0;border-radius:4px}
+.me .avatar::before,.me .avatar::after{width:10%;height:10%}.me .avatar i{border-bottom-width:2px}
+
+.hero{min-height:88vh;display:flex;align-items:center;padding:110px 4% 120px;position:relative;
+background:linear-gradient(to right,rgba(0,0,0,.92) 25%,transparent 100%), url('images/main-bg.jpg') center/cover no-repeat;}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,var(--bg),transparent)}
+.hero-in{max-width:640px;position:relative;z-index:1}
+.series{color:var(--grey);font-size:.95rem;letter-spacing:.3em;margin-bottom:10px}
+.series b{color:var(--red);letter-spacing:0;font-size:1.4rem;margin-right:8px}
+.hero h1{font-size:clamp(2.6rem,9vw,5rem);line-height:1;font-weight:800;margin-bottom:14px}
+.meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:.95rem;color:var(--grey);margin-bottom:14px}
+.meta .m{color:var(--green);font-weight:700}
+.meta .tag{border:1px solid var(--grey);padding:0 6px;font-size:.8rem}
+.hero p.d{font-size:clamp(1rem,2vw,1.2rem);line-height:1.5;margin-bottom:26px;text-shadow:2px 2px 4px rgba(0,0,0,.5)}
+.hbtn{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:10px 26px;border-radius:4px;font-size:clamp(1rem,2vw,1.2rem);font-weight:700;border:0;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{transform:scale(1.05)}
+.p{background:#fff;color:#000}.p:hover{background:rgba(255,255,255,.75)}
+.s{background:rgba(109,109,110,.7);color:#fff}.s:hover{background:rgba(109,109,110,.45)}
+
+.row{padding:0 4%;margin-top:-30px;margin-bottom:28px;position:relative;z-index:10}
+.row h2{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:500;color:var(--soft);margin-bottom:6px}
+.track{display:flex;gap:10px;overflow-x:auto;padding:22px 0;scrollbar-width:none;scroll-snap-type:x proximity}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 auto;width:clamp(230px,24vw,300px);height:clamp(130px,14vw,170px);border-radius:4px;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;position:relative;overflow:hidden;scroll-snap-align:start;transition:transform .4s,box-shadow .4s;background:var(--card)}
+.card:hover,.card:focus-visible{transform:scale(1.1);z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.7)}
+.card h3{font-size:1.05rem}
+.card p{font-size:.82rem;color:var(--soft);opacity:.85}
+.card .badge{position:absolute;top:10px;left:10px;font-size:.7rem;font-weight:700;background:var(--red);padding:2px 6px;border-radius:2px}
+.card .prog{position:absolute;left:0;bottom:0;height:4px;background:var(--red)}
+.card.link{text-decoration:none;color:#fff}
+.c1{background:linear-gradient(160deg,#5c0f16,#1e1e1e)}.c2{background:linear-gradient(160deg,#0f3a5c,#1e1e1e)}.c3{background:linear-gradient(160deg,#164a2a,#1e1e1e)}.c4{background:linear-gradient(160deg,#4a3a10,#1e1e1e)}.c5{background:linear-gradient(160deg,#3d1655,#1e1e1e)}
+footer{padding:50px 4% calc(50px + env(safe-area-inset-bottom,0px));text-align:center;color:#808080;font-size:.9rem}
+footer a{color:#808080;margin:0 10px}
+@media (prefers-reduced-motion:reduce){.intro-text{animation:none;opacity:1}html{scroll-behavior:auto}.card,.btn,.profile{transition:none}}
+@media (max-width:640px){.me span{display:none}.hero{min-height:80vh}}
+</style>
+</head>
+<body>
+
+<div id="intro" role="button" tabindex="0" aria-label="Skip intro">
+  <div class="intro-text">DHIREN OAD</div>
+  <div class="skip">Tap to skip</div>
+</div>
+
+<div id="profiles">
+  <h1>Who's watching?</h1>
+  <div class="plist">
+    <button class="profile" data-name="Recruiter"><div class="avatar b"><i></i></div>Recruiter</button>
+    <button class="profile" data-name="Collaborator"><div class="avatar r"><i></i></div>Collaborator</button>
+    <button class="profile" data-name="Visitor"><div class="avatar g"><i></i></div>Visitor</button>
+  </div>
+</div>
+
+<div id="main">
+  <nav id="nav">
+    <a class="logo" href="#home">DHIREN OAD</a>
+    <ul class="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#watching">Continue Watching</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#volunteering">Volunteering</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="me"><div class="avatar" id="meAvatar"><i></i></div><span id="meName"></span></div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-in">
+      <div class="series"><b>D</b>PORTFOLIO SERIES</div>
+      <h1>Dhiren Oad</h1>
+      <div class="meta"><span class="m">100% Match</span><span>2026</span><span class="tag">MBBS</span><span>Kathmandu, Nepal</span><span class="tag">HD</span></div>
+      <p class="d">MBBS Student | Content Creator | Nature Photographer. Balancing the rigorous journey of medicine at NAIHS with a passion for creative storytelling, nature photography, and global health volunteering.</p>
+      <div class="hbtn">
+        <a class="btn p" href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener"><span aria-hidden="true">&#9654;</span> Connect</a>
+        <a class="btn s" href="#watching"><span aria-hidden="true">&#9432;</span> More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="row" id="watching">
+    <h2>Continue Watching for <span id="who">you</span></h2>
+    <div class="track">
+      <div class="card c1"><span class="badge">NOW</span><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p><div class="prog" style="width:30%"></div></div>
+      <div class="card c2"><span class="badge">NOW</span><h3>IT Specialist</h3><p>Nepal Health Corps NAIHS | Nov 2025 to Present</p><div class="prog" style="width:60%"></div></div>
+    </div>
+  </div>
+
+  <div class="row" id="education">
+    <h2>Education Journey</h2>
+    <div class="track">
+      <div class="card c1"><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p></div>
+      <div class="card c3"><h3>+2, Biology</h3><p>Sainik Awasiya Mahavidhyalaya | Jul 2024</p></div>
+    </div>
+  </div>
+
+  <div class="row" id="skills">
+    <h2>Top Skills &amp; Capabilities</h2>
+    <div class="track">
+      <div class="card c4"><h3>Team Leadership</h3><p>Collaborative problem solving</p></div>
+      <div class="card c5"><h3>Video Editing</h3><p>Adobe Premiere Pro</p></div>
+      <div class="card c2"><h3>Graphic Design</h3><p>Adobe Photoshop</p></div>
+      <div class="card c3"><h3>Communication</h3><p>Interpersonal proficiency</p></div>
+    </div>
+  </div>
+
+  <div class="row" id="volunteering">
+    <h2>Volunteering</h2>
+    <div class="track">
+      <div class="card c2"><h3>Volunteer</h3><p>World Health Organization | Jan 2022 to Jan 2023</p></div>
+      <div class="card c5"><h3>Graphic Designer</h3><p>International Nepal Fellowship | Feb 2020 to Feb 2021</p></div>
+    </div>
+  </div>
+
+  <div class="row" id="awards">
+    <h2>Awards &amp; Recognition</h2>
+    <div class="track">
+      <div class="card c4"><span class="badge">WINNER</span><h3>Best Student of the Year</h3><p>SAMB | Dec 2023</p></div>
+      <div class="card c4"><span class="badge">WINNER</span><h3>Best Student 2078/2080</h3><p>SAMB | Dec 2022</p></div>
+    </div>
+  </div>
+
+  <div class="row" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="track">
+      <a class="card c1 link" href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener"><h3>LinkedIn</h3><p>linkedin.com/in/oaddhiren</p></a>
+      <a class="card c1 link" href="https://www.youtube.com/@oaddhiren" target="_blank" rel="noopener"><h3>YouTube</h3><p>@oaddhiren | cinematic Nepal</p></a>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.youtube.com/@oaddhiren" target="_blank" rel="noopener">YouTube</a></p>
+    <p style="margin-top:10px">Dhiren Oad &copy; 2026</p>
+  </footer>
+</div>
+
+<script>
+var intro=document.getElementById('intro'),prof=document.getElementById('profiles'),main=document.getElementById('main'),done=false;
+function showProfiles(){
+  if(done)return;done=true;
+  intro.style.opacity='0';
+  setTimeout(function(){intro.style.display='none';prof.style.display='flex';void prof.offsetWidth;prof.style.opacity='1';},700);
+}
+var t=setTimeout(showProfiles,3400);
+intro.addEventListener('click',function(){clearTimeout(t);showProfiles();});
+intro.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){clearTimeout(t);showProfiles();}});
+document.querySelectorAll('.profile').forEach(function(b){
+  b.addEventListener('click',function(){
+    var name=b.getAttribute('data-name');
+    document.getElementById('who').textContent=name;
+    document.getElementById('meName').textContent=name;
+    var av=document.getElementById('meAvatar');av.className='avatar '+b.querySelector('.avatar').className.split(' ')[1];
+    prof.style.opacity='0';
+    setTimeout(function(){prof.style.display='none';main.style.display='block';void main.offsetWidth;main.style.opacity='1';window.scrollTo(0,0);},500);
+  });
+});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('solid',window.scrollY>=80);});
+</script>
+</body>
+</html>
