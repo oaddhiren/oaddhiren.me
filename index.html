@@ -9,17 +9,20 @@
 </head>
 <body>
 
+<!-- Audio for Netflix intro sound -->
+<audio id="introSound" src="netflix-sound.mp3" preload="auto"></audio>
+
 <div id="intro" role="button" tabindex="0" aria-label="Skip intro">
   <div class="intro-text">DHIREN OAD</div>
-  <div class="skip">Tap to skip</div>
+  <div class="skip">Tap to enter & play sound</div>
 </div>
 
 <div id="profiles">
   <h1>Who's watching?</h1>
   <div class="plist">
-    <button class="profile" data-name="Recruiter"><div class="avatar b"><i></i></div>Recruiter</button>
-    <button class="profile" data-name="Collaborator"><div class="avatar r"><i></i></div>Collaborator</button>
-    <button class="profile" data-name="Visitor"><div class="avatar g"><i></i></div>Visitor</button>
+    <button class="profile" data-name="Visitor"><div class="avatar b"><i></i></div>Visitor</button>
+    <button class="profile" data-name="Stalker"><div class="avatar r"><i></i></div>Stalker</button>
+    <button class="profile" data-name="Collaborator"><div class="avatar g"><i></i></div>Collaborator</button>
   </div>
 </div>
 
@@ -30,9 +33,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#watching">Continue Watching</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#volunteering">Volunteering</a></li>
-      <li><a href="#photography">Photography</a></li>
+      <li><a href="#sansar">म भित्रको संसार</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="me"><div class="avatar" id="meAvatar"><i></i></div><span id="meName"></span></div>
@@ -51,7 +52,14 @@
       </div>
       <p class="d">MBBS Student | Content Creator | Nature Photographer. Balancing the rigorous journey of medicine at NAIHS with a passion for creative storytelling, nature photography, and global health volunteering.</p>
       <div class="hbtn">
-        <a class="btn p" href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener"><span aria-hidden="true">&#9654;</span> Connect</a>
+        <div class="connect-wrapper">
+          <button class="btn p" id="connectBtn"><span aria-hidden="true">&#9654;</span> Connect</button>
+          <div class="connect-dropdown" id="connectDropdown">
+            <a href="https://www.instagram.com/oadddhiren/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/oaddhiren/" target="_blank">LinkedIn</a>
+            <a href="https://www.youtube.com/@Ignite_Your_Dream7" target="_blank">YouTube</a>
+          </div>
+        </div>
         <a class="btn s" href="#watching"><span aria-hidden="true">&#9432;</span> More Info</a>
       </div>
     </div>
@@ -60,62 +68,134 @@
   <div class="row" id="watching">
     <h2>Continue Watching for <span id="who">you</span></h2>
     <div class="track">
-      <div class="card c1"><span class="badge">NOW</span><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p><div class="prog" style="width:30%"></div></div>
-      <div class="card c2"><span class="badge">NOW</span><h3>IT Specialist</h3><p>Nepal Health Corps NAIHS | Nov 2025 to Present</p><div class="prog" style="width:60%"></div></div>
+      <div class="card c1">
+        <span class="badge">NOW</span>
+        <h3>MBBS, Medicine</h3>
+        <p>NAIHS | Nov 2024 to Nov 2029</p>
+        <div class="prog" style="width:30%"></div>
+      </div>
+      <div class="media-card"><img src="md1.jpg" alt="Medicine 1" loading="lazy"></div>
+      <div class="media-card"><img src="md2.jpg" alt="Medicine 2" loading="lazy"></div>
+      <div class="media-card"><img src="md3.jpg" alt="Medicine 3" loading="lazy"></div>
     </div>
   </div>
 
   <div class="row" id="education">
     <h2>Education Journey</h2>
     <div class="track">
-      <div class="card c1"><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p></div>
-      <div class="card c3"><h3>+2, Biology</h3><p>Sainik Awasiya Mahavidhyalaya | Jul 2024</p></div>
-    </div>
-  </div>
-
-  <div class="row" id="skills">
-    <h2>Top Skills &amp; Capabilities</h2>
-    <div class="track">
-      <div class="card c4"><h3>Team Leadership</h3><p>Collaborative problem solving</p></div>
-      <div class="card c5"><h3>Video Editing</h3><p>Adobe Premiere Pro</p></div>
-      <div class="card c2"><h3>Graphic Design</h3><p>Adobe Photoshop</p></div>
-      <div class="card c3"><h3>Communication</h3><p>Interpersonal proficiency</p></div>
-    </div>
-  </div>
-
-  <div class="row" id="volunteering">
-    <h2>Volunteering</h2>
-    <div class="track">
-      <div class="card c2"><h3>Volunteer</h3><p>World Health Organization | Jan 2022 to Jan 2023</p></div>
-      <div class="card c5"><h3>Graphic Designer</h3><p>International Nepal Fellowship | Feb 2020 to Feb 2021</p></div>
-    </div>
-  </div>
-
-  <div class="row" id="photography">
-    <h2>Photography & Adventures</h2>
-    <div class="track">
-      <div class="media-card">
-        <img src="assets/images/photo1.jpg" alt="Nature Portrait" loading="lazy">
+      <div class="media-card card-overlay">
+        <img src="n1.jpg" alt="MBBS Photo" loading="lazy">
+        <div class="info"><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p></div>
       </div>
-      <div class="media-card">
-        <img src="assets/images/photo2.jpg" alt="Mountain Portrait" loading="lazy">
-      </div>
-      <div class="media-card">
-        <img src="assets/images/photo3.jpg" alt="Scenic Mountain View" loading="lazy">
+      <div class="media-card card-overlay">
+        <img src="sainik1.jpg" alt="Sainik Awasiya" loading="lazy">
+        <div class="info"><h3>+2, Biology</h3><p>Sainik Awasiya Mahavidhyalaya</p></div>
       </div>
       <div class="media-card video-card">
-        <video src="assets/videos/video.mp4" controls preload="metadata" poster="assets/images/main-bg.jpg"></video>
+        <iframe src="https://www.youtube.com/embed/ismgaTljNw8?si=K1vInSuXxREs2_R4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nepali Section -->
+  <div id="sansar" style="padding-top: 40px;">
+    <h1 class="nepali-title">म भित्रको संसार</h1>
+
+    <div class="row">
+      <h2>माछापुच्छ्रेका छाँयाहरू (Mardi Himal Trek)</h2>
+      <div class="track">
+        <div class="media-card video-card"><iframe src="https://www.youtube.com/embed/a5jg-rCk4es?si=4BkUhBaUEhKXjR_j" frameborder="0" allowfullscreen></iframe></div>
+        <div class="media-card"><img src="m1.jpg" alt="Mardi 1" loading="lazy"></div>
+        <div class="media-card"><img src="m2.jpg" alt="Mardi 2" loading="lazy"></div>
+        <div class="media-card"><img src="m3.jpg" alt="Mardi 3" loading="lazy"></div>
+        <div class="media-card"><img src="m4.jpg" alt="Mardi 4" loading="lazy"></div>
+        <div class="media-card"><img src="m5.jpg" alt="Mardi 5" loading="lazy"></div>
+        <div class="media-card"><img src="m6.jpg" alt="Mardi 6" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>फेवातालको गहिराइ र म</h2>
+      <div class="track">
+        <div class="media-card"><img src="f1.jpg" alt="Fewa 1" loading="lazy"></div>
+        <div class="media-card"><img src="f2.jpg" alt="Fewa 2" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>एकदिन र लाङ्टाङको उकालो (Memorable Trek)</h2>
+      <div class="track">
+        <div class="media-card"><img src="l1.jpg" alt="Langtang 1" loading="lazy"></div>
+        <div class="media-card"><img src="l2.jpg" alt="Langtang 2" loading="lazy"></div>
+        <div class="media-card"><img src="l3.jpg" alt="Langtang 3" loading="lazy"></div>
+        <div class="media-card"><img src="l4.jpg" alt="Langtang 4" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>कालिन्चोकका रङहरू (Kalinchowk Tour)</h2>
+      <div class="track">
+        <div class="media-card"><img src="k1.jpg" alt="Kalinchowk 1" loading="lazy"></div>
+        <div class="media-card"><img src="k2.jpg" alt="Kalinchowk 2" loading="lazy"></div>
+        <div class="media-card"><img src="k3.jpg" alt="Kalinchowk 3" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>डोपामाइनका तरङ्गहरू (Basketball & Football)</h2>
+      <div class="track">
+        <!-- Add photos here if any later -->
+        <div class="card c1"><h3>Sports</h3><p>Basketball & Football</p></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>साना सहयोगी हातहरू (Volunteering & NHC-NAIHS)</h2>
+      <div class="track">
+        <div class="media-card"><img src="he1.jpg" alt="Help 1" loading="lazy"></div>
+        <div class="media-card"><img src="he2.jpg" alt="Help 2" loading="lazy"></div>
+        <div class="media-card"><img src="he3.jpg" alt="Help 3" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>सानो संसार</h2>
+      <div class="track">
+        <div class="media-card"><img src="sa1.jpg" alt="Sansar 1" loading="lazy"></div>
+        <div class="media-card"><img src="sa2.jpg" alt="Sansar 2" loading="lazy"></div>
+        <div class="media-card"><img src="sa3.jpg" alt="Sansar 3" loading="lazy"></div>
+        <div class="media-card"><img src="sa4.jpg" alt="Sansar 4" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>केही पल र केही कथाहरू</h2>
+      <div class="track">
+        <div class="media-card video-card"><iframe src="https://www.youtube.com/embed/tChNuRtgPQo?si=G6vySbxwe-0g1aAv" frameborder="0" allowfullscreen></iframe></div>
+        <div class="media-card"><img src="p1.jpg" alt="Pal 1" loading="lazy"></div>
+        <div class="media-card"><img src="p2.jpg" alt="Pal 2" loading="lazy"></div>
       </div>
     </div>
   </div>
 
   <div class="row" id="contact">
-    <h2>Get in Touch</h2>
+    <h2 class="bold-contact">GET IN TOUCH</h2>
     <div class="track">
-      <a class="card c1 link" href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener"><h3>LinkedIn</h3><p>linkedin.com/in/oaddhiren</p></a>
-      <a class="card c2 link" href="https://www.instagram.com/oadddhiren/" target="_blank" rel="noopener"><h3>Instagram</h3><p>@oadddhiren</p></a>
-      <a class="card c3 link" href="https://www.facebook.com/oadddhiren/" target="_blank" rel="noopener"><h3>Facebook</h3><p>@oadddhiren</p></a>
-      <a class="card c4 link" href="https://www.youtube.com/@Ignite_Your_Dream7" target="_blank" rel="noopener"><h3>YouTube</h3><p>@Ignite_Your_Dream7</p></a>
+      <a class="media-card card-overlay" href="https://www.linkedin.com/in/oaddhiren/" target="_blank" rel="noopener">
+        <img src="linkedin.jpg" alt="LinkedIn" loading="lazy">
+        <div class="info"><h3>LinkedIn</h3><p>oaddhiren</p></div>
+      </a>
+      <a class="media-card card-overlay" href="https://www.instagram.com/oadddhiren/" target="_blank" rel="noopener">
+        <img src="insta.jpg" alt="Instagram" loading="lazy">
+        <div class="info"><h3>Instagram</h3><p>@oadddhiren</p></div>
+      </a>
+      <a class="media-card card-overlay" href="https://www.facebook.com/oadddhiren/" target="_blank" rel="noopener">
+        <img src="fb.jpg" alt="Facebook" loading="lazy">
+        <div class="info"><h3>Facebook</h3><p>@oadddhiren</p></div>
+      </a>
+      <div class="media-card video-card">
+         <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=Ignite_Your_Dream7" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 
