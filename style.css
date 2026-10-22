@@ -50,7 +50,7 @@ nav.solid { background: var(--bg); }
 .me .avatar::before, .me .avatar::after { width: 10%; height: 10%; } .me .avatar i { border-bottom-width: 2px; }
 
 /* Hero Section */
-.hero { min-height: 88vh; display: flex; align-items: center; padding: 110px 4% 120px; position: relative; background: linear-gradient(to right, rgba(0,0,0,.92) 25%, transparent 100%), url('assets/main-bg.jpg') center/cover no-repeat; }
+.hero { min-height: 88vh; display: flex; align-items: center; padding: 110px 4% 120px; position: relative; background: linear-gradient(to right, rgba(0,0,0,.92) 25%, transparent 100%), url('assets/images/main-bg.jpg') center/cover no-repeat; }
 .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 160px; background: linear-gradient(to top, var(--bg), transparent); }
 .hero-in { max-width: 640px; position: relative; z-index: 1; }
 .series { color: var(--grey); font-size: .95rem; letter-spacing: .3em; margin-bottom: 10px; }
