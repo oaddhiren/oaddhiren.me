@@ -1,214 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="dark">
-  <title>Dhiren Oad | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dhiren Oad | The Dheeren Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&family=Noto+Sans+Devanagari:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#e50914;--bg:#141414;--mut:#b3b3b3}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:#fff;font:16px/1.55 'Inter',system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.np{font-family:'Noto Sans Devanagari','Mukta',sans-serif;font-weight:800}
+.bb{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400}
+
+/* start / intro / profiles */
+#st,#in,#pf{position:fixed;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column}
+#in,#pf{display:none}
+#st button{background:none;color:var(--r);font-size:clamp(28px,6vw,56px);letter-spacing:.2em;animation:pl 1.8s ease-in-out infinite}
+#st small{color:#666;margin-top:14px}
+@keyframes pl{50%{opacity:.4}}
+#in h1{font-size:clamp(46px,12vw,170px);line-height:1;color:var(--r);letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 50px #e5091477;animation:tu 3.6s cubic-bezier(.65,0,.25,1) forwards}
+@keyframes tu{0%{opacity:0;transform:scale(.7)}14%{opacity:1;transform:scale(1)}58%{transform:scale(1.18,1.04);letter-spacing:.07em}100%{opacity:0;transform:scale(10,15);letter-spacing:.3em;filter:blur(8px)}}
+#pf h2{font-size:clamp(28px,5vw,52px);font-weight:600;margin-bottom:34px}
+.pp{display:flex;gap:clamp(14px,3vw,36px);flex-wrap:wrap;justify-content:center}
+.pp button{background:none;text-align:center;color:var(--mut);transition:color .2s}
+.pp i{display:grid;place-items:center;width:clamp(100px,16vw,160px);aspect-ratio:1;border-radius:6px;font-size:clamp(40px,7vw,70px);font-style:normal;border:3px solid transparent;margin-bottom:12px;transition:border-color .2s,transform .2s}
+.pp button:hover{color:#fff}.pp button:hover i{border-color:#fff;transform:scale(1.06)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;padding:14px 4%;background:linear-gradient(#000c,#0000);transition:background .3s}
+nav.sc{background:#141414}
+.lg{font-size:30px;color:var(--r);letter-spacing:.06em;white-space:nowrap}
+.nl{display:flex;gap:20px;font-size:14px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nl a{color:#e5e5e5;white-space:nowrap}.nl a:hover{color:var(--mut)}
+#who{background:none;font-size:22px;border:2px solid #fff3;border-radius:6px;padding:0 8px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:flex-end;padding:0 4% 14vh;background:#1c1c1c}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#000d 0,#0000 62%),linear-gradient(0deg,#141414 0,#0000 38%)}
+.hc{position:relative;z-index:2;max-width:620px}
+.ser{display:flex;align-items:center;gap:10px;letter-spacing:.3em;font-size:13px;color:#ddd;margin-bottom:8px}
+.ser b{color:var(--r);font-size:34px;letter-spacing:0;line-height:1}
+.hero h1{font-size:clamp(64px,13vw,150px);line-height:.9;letter-spacing:.03em}
+.mt{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:16px 0;font-size:15px}
+.mt .g{color:#46d369;font-weight:800}.mt .bd{border:1px solid #fff8;padding:0 6px;font-size:12px;border-radius:3px}
+.hero p.d{font-size:clamp(15px,1.7vw,19px);color:#eee;text-shadow:0 2px 6px #000}
+#gr{color:#ff6b73;font-weight:600;margin-top:14px;min-height:1.5em}
+.bt{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.bt button{padding:10px 28px;border-radius:5px;font-size:18px;font-weight:600;transition:opacity .2s}
+.bt button:hover{opacity:.8}.b1{background:#fff;color:#000}.b2{background:#6d6d6eb3}
+
+/* sections */
+section{padding:34px 0 10px}
+.rh{padding:0 4%;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.rh h3{font-size:clamp(20px,2.6vw,30px);font-weight:800;line-height:1.3}
+.rh small{color:var(--mut);font-size:14px}
+.po{padding:0 4%;color:#ff8a90;font-size:15px;font-weight:500;margin-top:2px}
+.big{padding:90px 4% 6px;font-size:clamp(46px,10vw,130px);line-height:1.15;font-weight:800;letter-spacing:-.01em}
+.big.en{font-size:clamp(30px,5vw,56px);letter-spacing:.04em;padding-top:56px}
+.big+.po{font-size:clamp(16px,2vw,22px);border-left:4px solid var(--r);margin-left:4%;padding-left:14px;margin-bottom:14px}
+.sc{position:relative}
+.tr{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:14px 4% 28px;scroll-snap-type:x proximity}
+.tr::-webkit-scrollbar{display:none}
+.ar{position:absolute;top:14px;bottom:28px;width:4%;background:#000a;font-size:36px;z-index:3;opacity:0;transition:opacity .2s}
+.sc:hover .ar{opacity:1}.ar.l{left:0}.ar.r{right:0}
+
+.c{flex:0 0 clamp(220px,26vw,360px);aspect-ratio:16/10;position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#2c2c2c,#101010);transition:transform .3s,box-shadow .3s;cursor:pointer;scroll-snap-align:start}
+.c:hover{transform:scale(1.07);z-index:2;box-shadow:0 14px 30px #000b}
+.c::after{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;color:#666;font-size:13px}
+.c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.c.v{flex-basis:clamp(300px,44vw,580px);aspect-ratio:16/9;cursor:default}.c.v:hover{transform:none}.c.v::after{content:none}
+.c iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
+.c.tx{cursor:default;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(160deg,#5a0b10,#1a1a1a)}
+.c.tx:nth-child(2n){background:linear-gradient(160deg,#0e3a52,#1a1a1a)}.c.tx:nth-child(3n){background:linear-gradient(160deg,#35260a,#1a1a1a)}
+.c.tx::after{content:none}.c.tx b{font-size:44px;line-height:1}.c.tx h4{font-size:22px;margin-top:8px}.c.tx p{color:#ddd;font-size:14px}
+
+/* continue watching */
+.cw .c{flex-basis:clamp(260px,30vw,430px);aspect-ratio:16/9}
+.cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 14px 14px;background:linear-gradient(#0000,#000e);font-size:14px;pointer-events:none}
+.cap b{display:block;font-size:17px}
+.pg{position:absolute;left:0;right:0;bottom:0;height:4px;background:#fff4;z-index:3}.pg i{display:block;height:100%;background:var(--r)}
+.now{position:absolute;top:10px;left:10px;z-index:3;background:var(--r);padding:1px 9px;border-radius:3px;font-size:12px;font-weight:800;letter-spacing:.1em}
+
+/* education */
+.eg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;padding:16px 4% 30px}
+.ed .c{width:100%;aspect-ratio:16/9}.ed h4{font-size:24px;margin-top:12px}.ed p{color:var(--mut)}
+.ed .c.v{width:100%;margin-top:14px}
+
+/* contact */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:14px 4%;max-width:720px}
+.sg a{display:block;border-radius:8px;overflow:hidden;background:#222;transition:transform .3s}
+.sg a:hover{transform:translateY(-6px)}
+.sg b{font-size:16px!important}.sg span{font-size:12px!important;word-break:break-all}.sg div.t{padding:10px 12px!important}
+.yt{max-width:520px!important}
+.sg .im{aspect-ratio:16/10;position:relative;background:linear-gradient(135deg,#2c2c2c,#101010)}
+.sg .im::after{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;color:#666;font-size:13px}
+.sg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.sg div.t{padding:14px 16px}.sg b{font-size:20px;display:block}.sg span{color:var(--mut);font-size:14px}
+.yt{padding:10px 4% 0;max-width:900px}.yt .c.v{width:100%;flex:none}
+footer{padding:50px 4% 40px;color:var(--mut);font-size:14px;text-align:center}
+footer div{display:flex;gap:22px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}footer a:hover{color:#fff}
+
+/* overlays */
+#md,#lb{position:fixed;inset:0;background:#000c;z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+.bx{background:#181818;border-radius:10px;max-width:480px;width:100%;padding:30px;position:relative;box-shadow:0 20px 60px #000}
+.bx h3{font-size:26px;margin-bottom:6px}.bx>p{color:var(--mut);margin-bottom:16px;font-size:15px}
+.bx .x{position:absolute;top:10px;right:14px;background:none;font-size:30px}
+.bx a.l{display:flex;justify-content:space-between;gap:10px;padding:14px 16px;margin-top:10px;background:#2b2b2b;border-radius:6px;transition:background .2s}
+.bx a.l:hover{background:var(--r)}.bx a.l span{color:#ddd;font-size:14px}
+#lb img{max-width:95vw;max-height:92vh;border-radius:6px}
+.rv{opacity:0;transition:opacity 1s}.rv.on{opacity:1}
+@media(max-width:700px){.lg{font-size:22px}nav{gap:12px}.ar{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
 
-<!-- Audio for Netflix intro sound -->
-<audio id="introSound" src="netflix-sound.mp3" preload="auto"></audio>
+<!-- Audio Element -->
+<audio id="netflix-sound" src="https://www.myinstants.com/media/sounds/tudum.mp3" preload="auto"></audio>
 
-<div id="intro" role="button" tabindex="0" aria-label="Skip intro">
-  <div class="intro-text">DHIREN OAD</div>
-  <div class="skip">Tap to enter & play sound</div>
+<div id="st"><button id="go" class="bb">PRESS TO ENTER</button><small>Sound on for the full experience</small></div>
+<div id="in"><h1 class="bb">DHIREN OAD</h1></div>
+<div id="pf"><h2>Who's watching?</h2>
+  <div class="pp">
+    <button data-p="Visitor" data-m="Welcome in. Grab popcorn, there's a lot to watch."><i style="background:#2f6fdb">👀</i>Visitor</button>
+    <button data-p="Stalker" data-m="Relax, I won't tell anyone. It's all public anyway."><i style="background:#c2410c">🕵️</i>Stalker</button>
+    <button data-p="Collaborator" data-m="Great, let's make something together."><i style="background:#16a34a">🤝</i>Collaborator</button>
+  </div></div>
+
+<nav id="nv">
+  <a class="lg bb" href="#home">DHIREN OAD</a>
+  <div class="nl"><a href="#home">Home</a><a href="#cw">Continue Watching</a><a href="#edu">Education</a><a href="#world" class="np" style="font-weight:600">म भित्रको संसार</a><a href="#contact">Contact</a></div>
+  <button id="who" title="Switch profile">👀</button>
+</nav>
+
+<header class="hero" id="home">
+  <!-- Background Image -->
+  <img src="main-bg.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/222/FFF?text=Hero+Image+(main-bg.jpg)';" alt="Dhiren Oad Hero" class="hbg">
+  <div class="hc">
+  <div class="ser"><b class="bb">D</b>DHEEREN SERIES</div>
+  <h1 class="bb">Dhiren Oad</h1>
+  <div class="mt"><span class="g">100% Match</span><span>2026</span><span class="bd">MBBS</span><span>Kathmandu, Nepal</span><span class="bd">HD</span></div>
+  <p class="d">MBBS Student | Content Creator | Nature Photographer. Balancing the rigorous journey of medicine at NAIHS with a passion for creative storytelling, nature photography, and global health volunteering.</p>
+  <p id="gr"></p>
+  <div class="bt"><button class="b1" id="bc">▶ Connect</button><button class="b2" id="bi">ⓘ More Info</button></div>
+</div></header>
+
+<section class="cw rv" id="cw">
+  <div class="rh"><h3 id="cwt">Continue Watching</h3></div>
+  <div class="tr" id="cwr"></div>
+</section>
+
+<section class="rv" id="edu">
+  <div class="rh"><h3>Education Journey</h3></div>
+  <div class="eg">
+    <article class="ed"><div class="c" data-n="n1.jpg"><img src="n1.jpg" alt="NAIHS" onerror="this.remove()"><span class="now">NOW</span></div><h4>MBBS, Medicine</h4><p>NAIHS | Nov 2024 to Nov 2029</p></article>
+    <article class="ed"><div class="c" data-n="sainik1.jpg"><img src="sainik1.jpg" alt="Sainik Awasiya Mahavidhyalaya" onerror="this.remove()"></div><h4>+2, Biology</h4><p>Sainik Awasiya Mahavidhyalaya | Jul 2024</p><div id="ev"></div></article>
+  </div>
+</section>
+
+<h2 class="big np rv" id="world">म भित्रको संसार</h2>
+<p class="po np">भित्रको संसारमा शब्द थोरै छन्, दृश्य अनगिन्ती।</p>
+<div id="rows"></div>
+
+<h2 class="big en bb rv" id="contact">Get in Touch</h2>
+<div class="sg">
+  <a href="https://linkedin.com/in/oaddhiren" target="_blank" rel="noopener"><div class="im" data-n="linkedin.jpg"><img src="linkedin.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>LinkedIn</b><span>linkedin.com/in/oaddhiren</span></div></a>
+  <a href="https://instagram.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="insta.jpg"><img src="insta.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Instagram</b><span>@oadddhiren</span></div></a>
+  <a href="https://facebook.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="fb.jpg"><img src="fb.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Facebook</b><span>@oadddhiren</span></div></a>
 </div>
+<div class="yt"><div class="rh" style="padding:0 0 4px"><h3>YouTube</h3><small><a href="https://youtube.com/@Ignite_Your_Dream7" target="_blank" rel="noopener">@Ignite_Your_Dream7</a></small></div><div id="yc"></div></div>
 
-<div id="profiles">
-  <h1>Who's watching?</h1>
-  <div class="plist">
-    <button class="profile" data-name="Visitor"><div class="avatar b"><i></i></div>Visitor</button>
-    <button class="profile" data-name="Stalker"><div class="avatar r"><i></i></div>Stalker</button>
-    <button class="profile" data-name="Collaborator"><div class="avatar g"><i></i></div>Collaborator</button>
-  </div>
-</div>
+<footer>
+  <div><a href="https://linkedin.com/in/oaddhiren" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/oadddhiren" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/oadddhiren" target="_blank" rel="noopener">Facebook</a><a href="https://youtube.com/@Ignite_Your_Dream7" target="_blank" rel="noopener">YouTube</a></div>
+  Dhiren Oad © 2026
+</footer>
 
-<div id="main">
-  <nav id="nav">
-    <a class="logo" href="#home">DHIREN OAD</a>
-    <ul class="links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#watching">Continue Watching</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#sansar">म भित्रको संसार</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="me"><div class="avatar" id="meAvatar"><i></i></div><span id="meName"></span></div>
-  </nav>
+<div id="md"><div class="bx" id="mb"></div></div>
+<div id="lb"><img alt=""></div>
 
-  <section class="hero" id="home">
-    <div class="hero-in">
-      <div class="series"><b>D</b>PORTFOLIO SERIES</div>
-      <h1>Dhiren Oad</h1>
-      <div class="meta">
-        <span class="m">100% Match</span>
-        <span>2026</span>
-        <span class="tag">MBBS</span>
-        <span>Kathmandu, Nepal</span>
-        <span class="tag">HD</span>
-      </div>
-      <p class="d">MBBS Student | Content Creator | Nature Photographer. Balancing the rigorous journey of medicine at NAIHS with a passion for creative storytelling, nature photography, and global health volunteering.</p>
-      <div class="hbtn">
-        <div class="connect-wrapper">
-          <button class="btn p" id="connectBtn"><span aria-hidden="true">&#9654;</span> Connect</button>
-          <div class="connect-dropdown" id="connectDropdown">
-            <a href="[https://www.instagram.com/oadddhiren/](https://www.instagram.com/oadddhiren/)" target="_blank">Instagram</a>
-            <a href="[https://www.linkedin.com/in/oaddhiren/](https://www.linkedin.com/in/oaddhiren/)" target="_blank">LinkedIn</a>
-            <a href="[https://www.youtube.com/@Ignite_Your_Dream7](https://www.youtube.com/@Ignite_Your_Dream7)" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <a class="btn s" href="#watching"><span aria-hidden="true">&#9432;</span> More Info</a>
-      </div>
-    </div>
-  </section>
+<script>
+/* ---- settings ---- */
+const YT_CHANNEL_ID=''; // optional: your channel ID (starts with UC...) to embed your uploads
 
-  <div class="row" id="watching">
-    <h2>Continue Watching for <span id="who">you</span></h2>
-    <div class="track">
-      <div class="card c1">
-        <span class="badge">NOW</span>
-        <h3>MBBS, Medicine</h3>
-        <p>NAIHS | Nov 2024 to Nov 2029</p>
-        <div class="prog" style="width:30%"></div>
-      </div>
-      <div class="media-card"><img src="assets/images/md1.jpg" alt="Medicine 1" loading="lazy"></div>
-      <div class="media-card"><img src="assets/images/md2.jpg" alt="Medicine 2" loading="lazy"></div>
-      <div class="media-card"><img src="assets/images/md3.jpg" alt="Medicine 3" loading="lazy"></div>
-    </div>
-  </div>
+const $=s=>document.querySelector(s);
+const img=s=>`<div class="c" data-n="${s}" onclick="lb('${s}')"><img src="${s}" alt="" loading="lazy" onerror="this.remove()"></div>`;
+const imgs=(p,n)=>Array.from({length:n},(_,i)=>img(p+(i+1)+'.jpg')).join('');
+const ic=(s,t,d)=>`<div class="c" data-n="${s}" onclick="lb('${s}')"><img src="${s}" alt="${t}" loading="lazy" onerror="this.remove()"><div class="cap"><b>${t}</b>${d}</div></div>`;
+const yt=(id,l)=>`<div class="c v"><iframe src="${l?'https://www.youtube.com/embed/videoseries?list='+id:'https://www.youtube.com/embed/'+id}" title="YouTube video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe></div>`;
+const tx=(e,t,d)=>`<div class="c tx"><b>${e}</b><h4>${t}</h4><p>${d}</p></div>`;
 
-  <div class="row" id="education">
-    <h2>Education Journey</h2>
-    <div class="track">
-      <div class="media-card card-overlay">
-        <img src="assets/images/n1.jpg" alt="MBBS Photo" loading="lazy">
-        <div class="info"><h3>MBBS, Medicine</h3><p>NAIHS | Nov 2024 to Nov 2029</p></div>
-      </div>
-      <div class="media-card card-overlay">
-        <img src="assets/images/sainik1.jpg" alt="Sainik Awasiya" loading="lazy">
-        <div class="info"><h3>+2, Biology</h3><p>Sainik Awasiya Mahavidhyalaya</p></div>
-      </div>
-      <div class="media-card video-card">
-        <iframe src="[https://www.youtube.com/embed/ismgaTljNw8?si=K1vInSuXxREs2_R4](https://www.youtube.com/embed/ismgaTljNw8?si=K1vInSuXxREs2_R4)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+/* ---- Netflix-style "tudum" (synthesised, no copyrighted audio) ---- */
+function snd(){
+  const el=$('#netflix-sound');
+  if(el){el.currentTime=0;const p=el.play();if(p)p.catch(synth);return}
+  synth();
+}
+function synth(){
+  try{
+    const a=new(window.AudioContext||window.webkitAudioContext)(),t=a.currentTime,m=a.createGain();
+    m.gain.value=.8;m.connect(a.destination);
+    const n=(type,f0,f1,s,d,v)=>{const o=a.createOscillator(),g=a.createGain();o.type=type;
+      o.frequency.setValueAtTime(f0,t+s);o.frequency.exponentialRampToValueAtTime(f1,t+s+d);
+      g.gain.setValueAtTime(.0001,t+s);g.gain.exponentialRampToValueAtTime(v,t+s+Math.min(.05,d/3));g.gain.exponentialRampToValueAtTime(.0001,t+s+d);
+      o.connect(g).connect(m);o.start(t+s);o.stop(t+s+d)};
+    n('sine',90,40,0,.9,.9);n('sine',120,50,.42,1.6,1);       // tu - dum
+    [196,294,392,588,784].forEach((f,i)=>n('triangle',f*.97,f*1.02,.5+i*.05,2.6,.07)); // shimmer
+  }catch(e){}
+}
 
-  <!-- Nepali Section -->
-  <div id="sansar" style="padding-top: 40px;">
-    <h1 class="nepali-title">म भित्रको संसार</h1>
+/* ---- flow: start > intro > profiles > site ---- */
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#go').onclick=()=>{
+  $('#st').style.display='none';
+  if(reduce){showPf();return}
+  snd();$('#in').style.display='flex';
+  setTimeout(()=>{$('#in').style.display='none';showPf()},3700);
+};
+function showPf(){$('#pf').style.display='flex'}
+document.querySelectorAll('.pp button').forEach(b=>b.onclick=()=>{
+  $('#pf').style.display='none';
+  $('#who').textContent=b.querySelector('i').textContent;
+  $('#cwt').textContent='Continue Watching for '+b.dataset.p;
+  $('#gr').textContent=b.dataset.m;
+  window.scrollTo(0,0);
+});
+$('#who').onclick=showPf;
 
-    <div class="row">
-      <h2>माछापुच्छ्रेका छाँयाहरू (Mardi Himal Trek)</h2>
-      <div class="track">
-        <div class="media-card video-card"><iframe src="[https://www.youtube.com/embed/a5jg-rCk4es?si=4BkUhBaUEhKXjR_j](https://www.youtube.com/embed/a5jg-rCk4es?si=4BkUhBaUEhKXjR_j)" frameborder="0" allowfullscreen></iframe></div>
-        <div class="media-card"><img src="assets/images/m1.jpg" alt="Mardi 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/m2.jpg" alt="Mardi 2" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/m3.jpg" alt="Mardi 3" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/m4.jpg" alt="Mardi 4" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/m5.jpg" alt="Mardi 5" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/m6.jpg" alt="Mardi 6" loading="lazy"></div>
-      </div>
-    </div>
+/* ---- continue watching: only MBBS, Medicine ---- */
+const s0=new Date('2024-11-01'),s1=new Date('2029-11-01');
+const pct=Math.max(2,Math.min(100,Math.round((Date.now()-s0)/(s1-s0)*100)));
+$('#cwr').innerHTML=[1,2,3].map(i=>`<div class="c" data-n="md${i}.jpg" onclick="lb('md${i}.jpg')"><img src="md${i}.jpg" alt="MBBS journey ${i}" loading="lazy" onerror="this.remove()"><span class="now">NOW</span><div class="cap"><b>MBBS, Medicine</b>NAIHS | Nov 2024 to Nov 2029</div><div class="pg"><i style="width:${pct}%"></i></div></div>`).join('');
+$('#ev').innerHTML=yt('ismgaTljNw8');
 
-    <div class="row">
-      <h2>फेवातालको गहिराइ र म</h2>
-      <div class="track">
-        <div class="media-card"><img src="assets/images/f1.jpg" alt="Fewa 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/f2.jpg" alt="Fewa 2" loading="lazy"></div>
-      </div>
-    </div>
+/* ---- म भित्रको संसार rows ---- */
+const rows=[
+ ['माछापुच्छ्रेका छायाहरू','Mardi Himal Trek','बादलको काखमा हिमालको मौनता, र म।',imgs('m',6)+yt('a5jg-rCk4es')],
+ ['फेवातालको गहिराइ र म','Phewa Lake','ताल शान्त थियो, मन झन् गहिरो।',imgs('f',2)],
+ ['एक दिन र लाङटाङको उकालो','Langtang Trek','एक पाइला, एक सास, एक सपना।',imgs('l',4)],
+ ['कालिञ्चोकका रङहरू','Kalinchowk Tour','हिउँको सेतोमा रङ्गिएका सम्झनाहरू।',imgs('k',3)],
+ ['डोपामिनका तरङ्गहरू','Sports','पसिना, हाँसो र जितको धुन।',ic('d2.jpg','Basketball','Courts, teamwork and fast breaks')+ic('d3.jpg','Basketball','Courts, teamwork and fast breaks')+ic('d1.jpg','Football','Pitch time, passes and goals')],
+ ['साना सहयोगी हातहरू','Blood Donation, Volunteering & NHC-NAIHS','एक थोपा रगत, अनगिन्ती आशा।',ic('he1.jpg','Blood Donation','Giving back, one drop at a time')+ic('he2.jpg','NHC-NAIHS','Helping through Nepal Health Corps')+ic('he3.jpg','Volunteering','Community and health service')],
+ ['सानो संसार','Small World','सानै भए पनि, आफ्नै संसार।',imgs('sa',4)],
+ ['केही पल र केही कथाहरू','Moments','केही पल, जीवनभरका लागि।',imgs('p',2)+yt('tChNuRtgPQo')]
+];
+$('#rows').innerHTML=rows.map(r=>`<section class="rv"><div class="rh"><h3 class="np">${r[0]}</h3><small>${r[1]}</small></div><p class="po np">${r[2]}</p><div class="sc"><button class="ar l" aria-label="Previous" onclick="sl(this,-1)">‹</button><div class="tr">${r[3]}</div><button class="ar r" aria-label="Next" onclick="sl(this,1)">›</button></div></section>`).join('');
+function sl(b,d){const t=b.parentNode.querySelector('.tr');t.scrollBy({left:d*t.clientWidth*.8,behavior:'smooth'})}
 
-    <div class="row">
-      <h2>एकदिन र लाङ्टाङको उकालो (Memorable Trek)</h2>
-      <div class="track">
-        <div class="media-card"><img src="assets/images/l1.jpg" alt="Langtang 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/l2.jpg" alt="Langtang 2" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/l3.jpg" alt="Langtang 3" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/l4.jpg" alt="Langtang 4" loading="lazy"></div>
-      </div>
-    </div>
+/* ---- YouTube channel ---- */
+$('#yc').innerHTML=YT_CHANNEL_ID?yt('UU'+YT_CHANNEL_ID.slice(2),1):yt('a5jg-rCk4es');
 
-    <div class="row">
-      <h2>कालिन्चोकका रङहरू (Kalinchowk Tour)</h2>
-      <div class="track">
-        <div class="media-card"><img src="assets/images/k1.jpg" alt="Kalinchowk 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/k2.jpg" alt="Kalinchowk 2" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/k3.jpg" alt="Kalinchowk 3" loading="lazy"></div>
-      </div>
-    </div>
+/* ---- modals ---- */
+function md(h){$('#mb').innerHTML='<button class="x" aria-label="Close" onclick="cm()">×</button>'+h;$('#md').style.display='flex'}
+function cm(){$('#md').style.display='none'}
+$('#md').onclick=e=>{if(e.target.id==='md')cm()};
+$('#bc').onclick=()=>md(`<h3>Connect with Dhiren</h3><p>Pick a place to say hello.</p>
+<a class="l" href="https://instagram.com/oadddhiren" target="_blank" rel="noopener"><b>Instagram</b><span>@oadddhiren</span></a>
+<a class="l" href="https://linkedin.com/in/oaddhiren" target="_blank" rel="noopener"><b>LinkedIn</b><span>linkedin.com/in/oaddhiren</span></a>
+<a class="l" href="https://youtube.com/@Ignite_Your_Dream7" target="_blank" rel="noopener"><b>YouTube</b><span>@Ignite_Your_Dream7</span></a>`);
+$('#bi').onclick=()=>md(`<h3>Dhiren Oad</h3><p><span style="color:#46d369;font-weight:800">100% Match</span> · 2026 · MBBS · Kathmandu, Nepal</p>
+<p style="color:#ddd">MBBS student at NAIHS, content creator and nature photographer. Walking the long road of medicine while collecting mountains, lakes, blood donation drives and small stories along the way.</p>`);
+function lb(s){const l=$('#lb');l.firstChild.src=s;l.style.display='flex'}
+$('#lb').onclick=()=>$('#lb').style.display='none';
+document.onkeydown=e=>{if(e.key==='Escape'){cm();$('#lb').style.display='none'}};
 
-    <div class="row">
-      <h2>डोपामाइनका तरङ्गहरू (Basketball & Football)</h2>
-      <div class="track">
-        <div class="card c1"><h3>Sports</h3><p>Basketball & Football</p></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <h2>साना सहयोगी हातहरू (Volunteering & NHC-NAIHS)</h2>
-      <div class="track">
-        <div class="media-card"><img src="assets/images/he1.jpg" alt="Help 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/he2.jpg" alt="Help 2" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/he3.jpg" alt="Help 3" loading="lazy"></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <h2>सानो संसार</h2>
-      <div class="track">
-        <div class="media-card"><img src="assets/images/sa1.jpg" alt="Sansar 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/sa2.jpg" alt="Sansar 2" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/sa3.jpg" alt="Sansar 3" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/sa4.jpg" alt="Sansar 4" loading="lazy"></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <h2>केही पल र केही कथाहरू</h2>
-      <div class="track">
-        <div class="media-card video-card"><iframe src="[https://www.youtube.com/embed/tChNuRtgPQo?si=G6vySbxwe-0g1aAv](https://www.youtube.com/embed/tChNuRtgPQo?si=G6vySbxwe-0g1aAv)" frameborder="0" allowfullscreen></iframe></div>
-        <div class="media-card"><img src="assets/images/p1.jpg" alt="Pal 1" loading="lazy"></div>
-        <div class="media-card"><img src="assets/images/p2.jpg" alt="Pal 2" loading="lazy"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" id="contact">
-    <h2 class="bold-contact">GET IN TOUCH</h2>
-    <div class="track">
-      <a class="media-card card-overlay" href="[https://www.linkedin.com/in/oaddhiren/](https://www.linkedin.com/in/oaddhiren/)" target="_blank" rel="noopener">
-        <img src="assets/images/linkedin.jpg" alt="LinkedIn" loading="lazy">
-        <div class="info"><h3>LinkedIn</h3><p>oaddhiren</p></div>
-      </a>
-      <a class="media-card card-overlay" href="[https://www.instagram.com/oadddhiren/](https://www.instagram.com/oadddhiren/)" target="_blank" rel="noopener">
-        <img src="assets/images/insta.jpg" alt="Instagram" loading="lazy">
-        <div class="info"><h3>Instagram</h3><p>@oadddhiren</p></div>
-      </a>
-      <a class="media-card card-overlay" href="[https://www.facebook.com/oadddhiren/](https://www.facebook.com/oadddhiren/)" target="_blank" rel="noopener">
-        <img src="assets/images/fb.jpg" alt="Facebook" loading="lazy">
-        <div class="info"><h3>Facebook</h3><p>@oadddhiren</p></div>
-      </a>
-      <div class="media-card video-card">
-         <iframe src="[https://www.youtube.com/embed?listType=user_uploads&list=Ignite_Your_Dream7](https://www.youtube.com/embed?listType=user_uploads&list=Ignite_Your_Dream7)" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>
-      <a href="[https://www.linkedin.com/in/oaddhiren/](https://www.linkedin.com/in/oaddhiren/)" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="[https://www.instagram.com/oadddhiren/](https://www.instagram.com/oadddhiren/)" target="_blank" rel="noopener">Instagram</a>
-      <a href="[https://www.facebook.com/oadddhiren/](https://www.facebook.com/oadddhiren/)" target="_blank" rel="noopener">Facebook</a>
-      <a href="[https://www.youtube.com/@Ignite_Your_Dream7](https://www.youtube.com/@Ignite_Your_Dream7)" target="_blank" rel="noopener">YouTube</a>
-    </p>
-    <p style="margin-top:10px">Dhiren Oad &copy; 2026</p>
-  </footer>
-</div>
-
-<script src="script.js"></script>
+/* ---- nav + reveal ---- */
+addEventListener('scroll',()=>$('#nv').classList.toggle('sc',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
 </body>
 </html>
