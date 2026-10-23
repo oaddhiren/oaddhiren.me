@@ -141,7 +141,7 @@ footer div{display:flex;gap:22px;justify-content:center;margin-bottom:14px;flex-
 
 <header class="hero" id="home">
   <!-- Background Image -->
-  <img src="main-bg.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/222/FFF?text=Hero+Image+(main-bg.jpg)';" alt="Dhiren Oad Hero" class="hbg">
+  <img src="assets/images/main-bg.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/222/FFF?text=Hero+Image+(main-bg.jpg)';" alt="Dhiren Oad Hero" class="hbg">
   <div class="hc">
   <div class="ser"><b class="bb">D</b>DHEEREN SERIES</div>
   <h1 class="bb">Dhiren Oad</h1>
@@ -159,8 +159,8 @@ footer div{display:flex;gap:22px;justify-content:center;margin-bottom:14px;flex-
 <section class="rv" id="edu">
   <div class="rh"><h3>Education Journey</h3></div>
   <div class="eg">
-    <article class="ed"><div class="c" data-n="n1.jpg"><img src="n1.jpg" alt="NAIHS" onerror="this.remove()"><span class="now">NOW</span></div><h4>MBBS, Medicine</h4><p>NAIHS | Nov 2024 to Nov 2029</p></article>
-    <article class="ed"><div class="c" data-n="sainik1.jpg"><img src="sainik1.jpg" alt="Sainik Awasiya Mahavidhyalaya" onerror="this.remove()"></div><h4>+2, Biology</h4><p>Sainik Awasiya Mahavidhyalaya | Jul 2024</p><div id="ev"></div></article>
+    <article class="ed"><div class="c" data-n="n1.jpg"><img src="assets/images/n1.jpg" alt="NAIHS" onerror="this.remove()"><span class="now">NOW</span></div><h4>MBBS, Medicine</h4><p>NAIHS | Nov 2024 to Nov 2029</p></article>
+    <article class="ed"><div class="c" data-n="sainik1.jpg"><img src="assets/images/sainik1.jpg" alt="Sainik Awasiya Mahavidhyalaya" onerror="this.remove()"></div><h4>+2, Biology</h4><p>Sainik Awasiya Mahavidhyalaya | Jul 2024</p><div id="ev"></div></article>
   </div>
 </section>
 
@@ -170,9 +170,9 @@ footer div{display:flex;gap:22px;justify-content:center;margin-bottom:14px;flex-
 
 <h2 class="big en bb rv" id="contact">Get in Touch</h2>
 <div class="sg">
-  <a href="https://linkedin.com/in/oaddhiren" target="_blank" rel="noopener"><div class="im" data-n="linkedin.jpg"><img src="linkedin.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>LinkedIn</b><span>linkedin.com/in/oaddhiren</span></div></a>
-  <a href="https://instagram.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="insta.jpg"><img src="insta.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Instagram</b><span>@oadddhiren</span></div></a>
-  <a href="https://facebook.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="fb.jpg"><img src="fb.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Facebook</b><span>@oadddhiren</span></div></a>
+  <a href="https://linkedin.com/in/oaddhiren" target="_blank" rel="noopener"><div class="im" data-n="linkedin.jpg"><img src="assets/images/linkedin.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>LinkedIn</b><span>linkedin.com/in/oaddhiren</span></div></a>
+  <a href="https://instagram.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="insta.jpg"><img src="assets/images/insta.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Instagram</b><span>@oadddhiren</span></div></a>
+  <a href="https://facebook.com/oadddhiren" target="_blank" rel="noopener"><div class="im" data-n="fb.jpg"><img src="assets/images/fb.jpg" alt="" onerror="this.remove()"></div><div class="t"><b>Facebook</b><span>@oadddhiren</span></div></a>
 </div>
 <div class="yt"><div class="rh" style="padding:0 0 4px"><h3>YouTube</h3><small><a href="https://youtube.com/@Ignite_Your_Dream7" target="_blank" rel="noopener">@Ignite_Your_Dream7</a></small></div><div id="yc"></div></div>
 
@@ -189,9 +189,9 @@ footer div{display:flex;gap:22px;justify-content:center;margin-bottom:14px;flex-
 const YT_CHANNEL_ID=''; // optional: your channel ID (starts with UC...) to embed your uploads
 
 const $=s=>document.querySelector(s);
-const img=s=>`<div class="c" data-n="${s}" onclick="lb('${s}')"><img src="${s}" alt="" loading="lazy" onerror="this.remove()"></div>`;
+const img=s=>`<div class="c" data-n="${s}" onclick="lb('assets/images/${s}')"><img src="assets/images/${s}" alt="" loading="lazy" onerror="this.remove()"></div>`;
 const imgs=(p,n)=>Array.from({length:n},(_,i)=>img(p+(i+1)+'.jpg')).join('');
-const ic=(s,t,d)=>`<div class="c" data-n="${s}" onclick="lb('${s}')"><img src="${s}" alt="${t}" loading="lazy" onerror="this.remove()"><div class="cap"><b>${t}</b>${d}</div></div>`;
+const ic=(s,t,d)=>`<div class="c" data-n="${s}" onclick="lb('assets/images/${s}')"><img src="assets/images/${s}" alt="${t}" loading="lazy" onerror="this.remove()"><div class="cap"><b>${t}</b>${d}</div></div>`;
 const yt=(id,l)=>`<div class="c v"><iframe src="${l?'https://www.youtube.com/embed/videoseries?list='+id:'https://www.youtube.com/embed/'+id}" title="YouTube video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe></div>`;
 const tx=(e,t,d)=>`<div class="c tx"><b>${e}</b><h4>${t}</h4><p>${d}</p></div>`;
 
@@ -235,7 +235,7 @@ $('#who').onclick=showPf;
 /* ---- continue watching: only MBBS, Medicine ---- */
 const s0=new Date('2024-11-01'),s1=new Date('2029-11-01');
 const pct=Math.max(2,Math.min(100,Math.round((Date.now()-s0)/(s1-s0)*100)));
-$('#cwr').innerHTML=[1,2,3].map(i=>`<div class="c" data-n="md${i}.jpg" onclick="lb('md${i}.jpg')"><img src="md${i}.jpg" alt="MBBS journey ${i}" loading="lazy" onerror="this.remove()"><span class="now">NOW</span><div class="cap"><b>MBBS, Medicine</b>NAIHS | Nov 2024 to Nov 2029</div><div class="pg"><i style="width:${pct}%"></i></div></div>`).join('');
+$('#cwr').innerHTML=[1,2,3].map(i=>`<div class="c" data-n="md${i}.jpg" onclick="lb('assets/images/md${i}.jpg')"><img src="assets/images/md${i}.jpg" alt="MBBS journey ${i}" loading="lazy" onerror="this.remove()"><span class="now">NOW</span><div class="cap"><b>MBBS, Medicine</b>NAIHS | Nov 2024 to Nov 2029</div><div class="pg"><i style="width:${pct}%"></i></div></div>`).join('');
 $('#ev').innerHTML=yt('ismgaTljNw8');
 
 /* ---- म भित्रको संसार rows ---- */
@@ -243,7 +243,7 @@ const rows=[
  ['माछापुच्छ्रेका छायाहरू','Mardi Himal Trek','बादलको काखमा हिमालको मौनता, र म।',imgs('m',6)+yt('a5jg-rCk4es')],
  ['फेवातालको गहिराइ र म','Phewa Lake','ताल शान्त थियो, मन झन् गहिरो।',imgs('f',2)],
  ['एक दिन र लाङटाङको उकालो','Langtang Trek','एक पाइला, एक सास, एक सपना।',imgs('l',4)],
- ['कालिञ्चोकका रङहरू','Kalinchowk Tour','हिउँको सेतोमा रङ्गिएका सम्झनाहरू।',imgs('k',3)],
+ ['कालिञ्चोकका रङहरू','Kalinchowk Tour','हिउँको सेतो margin मा रङ्गिएका सम्झनाहरू।',imgs('k',3)],
  ['डोपामिनका तरङ्गहरू','Sports','पसिना, हाँसो र जितको धुन।',ic('d2.jpg','Basketball','Courts, teamwork and fast breaks')+ic('d3.jpg','Basketball','Courts, teamwork and fast breaks')+ic('d1.jpg','Football','Pitch time, passes and goals')],
  ['साना सहयोगी हातहरू','Blood Donation, Volunteering & NHC-NAIHS','एक थोपा रगत, अनगिन्ती आशा।',ic('he1.jpg','Blood Donation','Giving back, one drop at a time')+ic('he2.jpg','NHC-NAIHS','Helping through Nepal Health Corps')+ic('he3.jpg','Volunteering','Community and health service')],
  ['सानो संसार','Small World','सानै भए पनि, आफ्नै संसार।',imgs('sa',4)],
