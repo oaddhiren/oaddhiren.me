@@ -4,7 +4,7 @@
    <script src="heal.js"></script>
    ========================================================= */
 (()=>{
-const DIR='assets/', EXT='.mp3';   // songs: assets/m1.mp3 ... assets/m50.mp3  (change EXT if needed)
+const DIR='assets/songs/', EXT='.mp3';   // songs: assets/m1.mp3 ... assets/m50.mp3  (change EXT if needed)
 
 /* 50 song names: Nepali | Roman */
 const T=`मनको शान्त किनारा|Manko Shant Kinara
