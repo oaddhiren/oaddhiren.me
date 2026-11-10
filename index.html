@@ -274,5 +274,6 @@ addEventListener('scroll',()=>$('#nv').classList.toggle('sc',scrollY>40),{passiv
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 </script>
+     <script src="heal.js"></script>
 </body>
 </html>
